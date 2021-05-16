@@ -1,5 +1,9 @@
 import os
-from flask import Flask, render_template
+import json
+
+from flask import Flask, render_template, request
+
+from sudoku_solver.tasks.solver import solve
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -14,5 +18,5 @@ def index():
 
 
 @app.route("/solve", methods=["POST"])
-def solve():
-    pass
+def solve_api():
+    return solve(json.loads(request.values.get("key", "{}")))
