@@ -17,7 +17,7 @@ Run Docker Container
 docker run --net="host" hawkvine/sudoku-solver:version
 ```
 
-Check out https://hub.docker.com/r/hawkvine/funding-bot/tags?page=1&ordering=last_updated for available versions. (Latest Stable: 2.5.0)
+Check out https://hub.docker.com/r/hawkvine/sudoku-solver/tags?page=1&ordering=last_updated for available versions. (Latest Stable: 1.0.0)
 
 ## Run the code directly
 
