@@ -25,8 +25,10 @@ function setup() {
 
     let button = this.document.createElement("button");
     button.innerHTML = "Solve";
+    button.className = "solve-button";
     let clearButton = this.document.createElement("button");
     clearButton.innerHTML = "Clear";
+    clearButton.className = "clear-button";
 
     button.addEventListener("click", solve);
     clearButton.addEventListener("click", clear);
