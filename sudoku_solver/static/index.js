@@ -15,7 +15,7 @@ function setup() {
             input.setAttribute("id", generateCellId(count++));
             input.setAttribute("type", "number");
             input.setAttribute("max", 9);
-            input.setAttribute("min", 0);
+            input.setAttribute("min", 1);
             input.setAttribute("step", 1);
             cell.appendChild(input);
             row.appendChild(cell);
@@ -47,7 +47,12 @@ function solve() {
     for (let i = 0; i < 81; i++) {
         cellValue = document.getElementById(generateCellId(i)).value;
         if (cellValue && cellValue.match(regex)) {
-            sudokuData[i] =  parseInt(cellValue.match(regex)[0]);
+            value = parseInt(cellValue.match(regex)[0]);
+            if (value > 9 || value < 1) {
+                alert("Each cell can only take values from 1 to 9");
+                return;
+            }
+            sudokuData[i] = value;
         }
     }
 
@@ -56,10 +61,11 @@ function solve() {
             let response = JSON.parse(this.responseText);
             if (response.status == "success") {
                 Object.keys(response.solution).forEach( function (key) {
-                    console.log(key);
                     document.getElementById(generateCellId(key)).value = response.solution[key];
                     document.getElementById(generateCellId(key)).setAttribute("disabled", "disabled");
                 } )
+            } else {
+                alert("This sudoku solver is infeasible!!!");
             }
         }
     }
