@@ -14,7 +14,7 @@ docker pull hawkvine/sudoku-solver:version (i.e. docker pull hawkvine/sudoku-sol
 
 Run Docker Container
 ```
-docker run --net="host" hawkvine/sudoku-solver:version
+docker run -p=ip:port:80 hawkvine/sudoku-solver:version
 ```
 
 Check out https://hub.docker.com/r/hawkvine/sudoku-solver/tags?page=1&ordering=last_updated for available versions. (Latest Stable: 1.0.0)
